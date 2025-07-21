@@ -1,4 +1,31 @@
 class ApplicationHelper::Toolbar::ContainerGroupCenter < ApplicationHelper::Toolbar::Basic
+  button_group('container_group_vmdb', [
+    select(
+      :container_group_vmdb_choice,
+      nil,
+      t = N_('Configuration'),
+      t,
+      :items => [
+        button(
+          :container_group_edit,
+          'pficon pficon-edit fa-lg',
+          t = N_('Edit this Pod'),
+          t,
+          :url_parms    => "main_div",
+          :send_checked => true
+        ),
+        button(
+          :container_group_delete,
+          'pficon pficon-delete fa-lg',
+          t = N_('Delete this Pod'),
+          t,
+          :url_parms    => "main_div",
+          :send_checked => true,
+          :confirm      => N_("Warning: This Pod will be permanently deleted!")
+        ),
+      ]
+    ),
+  ])
   button_group('container_group_monitoring', [
     select(
       :container_group_monitoring_choice,

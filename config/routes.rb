@@ -683,6 +683,9 @@ Rails.application.routes.draw do
         show_list
         tagging_edit
         protect
+        delete_container_groups
+        edit
+        new
       ],
       :post => %w[
         button
@@ -696,6 +699,7 @@ Rails.application.routes.draw do
         wait_for_task
         tagging_edit
         protect
+        delete_container_groups
       ] +
                adv_search_post +
                exp_post +

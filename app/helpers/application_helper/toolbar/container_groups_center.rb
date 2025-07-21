@@ -1,4 +1,33 @@
 class ApplicationHelper::Toolbar::ContainerGroupsCenter < ApplicationHelper::Toolbar::Basic
+  button_group('container_group_vmdb', [
+    select(
+      :container_group_vmdb_choice,
+      nil,
+      t = N_('Configuration'),
+      t,
+      :items => [
+        button(
+          :container_group_new,
+          'pficon pficon-add-circle-o fa-lg',
+          t = N_('Add New Pod'),
+          t,
+          :klass => ApplicationHelper::Button::NewContainerGroup
+        ),
+        button(
+          :container_group_delete,
+          'pficon pficon-delete fa-lg',
+          N_('Delete selected Pods'),
+          N_('Delete Pods'),
+          :url_parms    => "main_div",
+          :send_checked => true,
+          :confirm      => N_("Warning: The selected Pods will be permanently deleted!"),
+          :enabled      => false,
+          :onwhen       => "1+"
+        ),
+      ]
+    ),
+  ])
+
   button_group('container_group_policy', [
     select(
       :container_group_policy_choice,
